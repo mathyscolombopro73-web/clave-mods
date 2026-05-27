@@ -1,0 +1,751 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fiche produit — CLAVE MODS · Seiko modifiée · Toulouse</title>
+<meta name="description" content="Fiche produit CLAVE MODS. Seiko modifiée assemblée à la main à Toulouse." />
+<!-- Open Graph / Twitter — tags statiques mis à jour dynamiquement via useEffect -->
+<meta property="og:type" content="product" />
+<meta property="og:site_name" content="CLAVE MODS" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Seiko modifiée — CLAVE MODS · Toulouse" />
+<meta property="og:description" content="Seiko modifiée assemblée à la main à Toulouse par l'atelier CLAVE. De 110 à 150€." />
+<meta property="og:image" content="https://clavemods.fr/assets/collections/royal-oak.png" />
+<meta property="og:url" content="https://clavemods.fr/product.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Seiko modifiée — CLAVE MODS" />
+<meta name="twitter:description" content="Seiko modifiée assemblée à la main à Toulouse par l'atelier CLAVE." />
+<meta name="twitter:image" content="https://clavemods.fr/assets/collections/royal-oak.png" />
+<!-- JSON-LD produit — peuplé dynamiquement par React après montage -->
+<script type="application/ld+json" id="jsonld-product">{}</script>
+<link rel="icon" type="image/png" href="assets/clave-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+
+
+/* ── Hero produit ── */
+.product-hero {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 64px;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 80px;
+  align-items: start;
+}
+
+.product-img-wrap {
+  position: relative;
+  height: 620px;
+  background: #0d0d18;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--hairline-violet);
+}
+.product-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.product-img-wrap:hover img { transform: scale(1.03); }
+.product-img-badge {
+  position: absolute; top: 18px; left: 18px;
+  z-index: 2;
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+/* Infos droite */
+.product-info {
+  display: flex; flex-direction: column; gap: 24px;
+  padding-top: 8px;
+}
+.product-collection-tag {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--violet-2);
+}
+.product-ref {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--fg-mute);
+  margin-top: -16px;
+}
+.product-name {
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  color: var(--fg);
+}
+.product-desc {
+  font-size: 16px;
+  color: var(--fg-2);
+  line-height: 1.7;
+}
+.product-divider {
+  height: 1px;
+  background: var(--hairline);
+}
+.product-price-block {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.product-price {
+  font-family: var(--display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--violet-2);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.product-price-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.product-stock {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .16em; text-transform: uppercase;
+}
+.product-stock .stock-dot {
+  width: 7px; height: 7px; border-radius: 999px;
+}
+.product-stock.instock { color: #5cc486; }
+.product-stock.instock .stock-dot { background: #5cc486; box-shadow: 0 0 8px rgba(92,196,134,.5); }
+.product-stock.order { color: var(--violet-2); }
+.product-stock.order .stock-dot { background: var(--violet); box-shadow: 0 0 8px var(--violet-glow); }
+
+.product-ctas { display: flex; flex-direction: column; gap: 12px; }
+.product-cta-main {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%;
+  padding: 17px 28px;
+  background: var(--violet);
+  color: #0a0a12;
+  border-radius: 999px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: none;
+  transition: all .2s ease;
+  text-decoration: none;
+}
+.product-cta-main:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px -8px var(--violet-glow);
+}
+.product-cta-ghost {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%;
+  padding: 16px 28px;
+  background: transparent;
+  color: var(--fg-2);
+  border-radius: 999px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid var(--hairline-strong);
+  transition: all .2s ease;
+  text-decoration: none;
+}
+.product-cta-ghost:hover {
+  border-color: var(--violet);
+  color: var(--violet-2);
+  background: var(--violet-soft);
+}
+
+/* Réassurance */
+.product-reassurance {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  padding-top: 4px;
+  border-top: 1px solid var(--hairline);
+}
+.reassurance-item {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.reassurance-item svg { flex-shrink: 0; }
+
+/* ── Specs techniques ── */
+.product-specs-section {
+  background: #0d0d18;
+  padding: 80px 0;
+  margin-top: 0;
+}
+.product-specs-inner {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--hairline-violet);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 48px;
+}
+.spec-cell {
+  padding: 28px 26px;
+  border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.spec-cell:nth-child(4n) { border-right: none; }
+.spec-cell:nth-last-child(-n+4) { border-bottom: none; }
+.spec-label {
+  font-family: var(--mono); font-size: 9.5px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--violet-2);
+}
+.spec-value {
+  font-size: 14px; font-weight: 500;
+  color: var(--fg);
+  line-height: 1.4;
+}
+
+/* ── Vous aimerez aussi ── */
+.product-related {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 80px var(--gutter) 100px;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+
+.prod-desc-small {
+  font-size: 12.5px; color: var(--fg-mute); line-height: 1.55;
+  padding-bottom: 4px;
+}
+.prod-collection-tag {
+  display: inline-block;
+  font-family: var(--mono); font-size: 9.5px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--violet-2);
+  margin-bottom: 4px;
+}
+
+/* ── Erreur 404 ── */
+.product-not-found {
+  text-align: center;
+  padding: 120px var(--gutter);
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+}
+.product-not-found h2 {
+  font-family: var(--display);
+  font-size: 28px; font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+.product-not-found p { color: var(--fg-mute); font-size: 15px; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .product-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 24px;
+  }
+  .product-img-wrap { height: 460px; order: -1; }
+  .specs-grid { grid-template-columns: repeat(2, 1fr); }
+  .spec-cell:nth-child(2n) { border-right: none; }
+  .spec-cell:nth-child(4n) { border-right: none; }
+  .spec-cell:nth-last-child(-n+4) { border-bottom: 1px solid var(--hairline); }
+  .spec-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .related-grid { grid-template-columns: 1fr; }
+  .product-reassurance { gap: 12px; }
+}
+@media (max-width: 540px) {
+  .product-img-wrap { height: 360px; }
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .product-img-wrap { height: 300px; }
+  .specs-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="data.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef } = React;
+
+/* ── Icônes ── */
+const IArrow  = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>;
+const ISearch = (p) => <svg {...p} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>;
+const IInsta  = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>;
+const ITt     = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M14 4v9a4 4 0 1 1-4-4"/><path d="M14 4c0 2.5 2 4.5 5 4.5"/></svg>;
+const IVinted = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/></svg>;
+const IWa     = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>;
+const IMail   = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>;
+const IMenu  = (p) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 12h18M3 6h18M3 18h18"/></svg>;
+const IClose = (p) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M18 6L6 18M6 6l12 12"/></svg>;
+const ILock   = (p) => <svg {...p} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>;
+const ITruck  = (p) => <svg {...p} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11v14"/><rect x="9" y="17" width="8" height="4" rx="1"/><path d="M17 3h4l3 4v5h-7V3z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="19.5" cy="18.5" r="1.5"/></svg>;
+const IShield = (p) => <svg {...p} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>;
+
+const ALL_PRODUCTS = window.CLAVE_DATA.products;
+
+/* ── Nav ── */
+const Nav = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const inputRef = useRef(null);
+  useEffect(() => {
+    const f = () => setScrolled(window.scrollY > 4);
+    window.addEventListener("scroll", f, { passive: true }); f();
+    return () => window.removeEventListener("scroll", f);
+  }, []);
+  useEffect(() => {
+    if (!searchOpen) return;
+    const onKey  = (e) => { if (e.key === "Escape") { setSearchOpen(false); setQuery(""); } };
+    const onDown = (e) => { if (!e.target.closest(".nav")) { setSearchOpen(false); setQuery(""); } };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onDown);
+    return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("mousedown", onDown); };
+  }, [searchOpen]);
+  useEffect(() => { if (searchOpen && inputRef.current) inputRef.current.focus(); }, [searchOpen]);
+  const submit = () => {
+    if (!query.trim()) return;
+    window.location.href = `catalogue.html?q=${encodeURIComponent(query.trim())}`;
+  };
+  return (
+    <nav className="nav" style={{ borderBottomColor: scrolled ? "var(--hairline-strong)" : "var(--hairline)" }}>
+      <div className="nav-inner">
+        <a className="nav-logo" href="index.html">
+          <img src="assets/clave-logo.png" alt="" />
+          <span><span className="mark">CLAVE</span> <span className="mods">MODS</span></span>
+        </a>
+        {searchOpen ? (
+          <div className="nav-search">
+            <input ref={inputRef} type="text" className="nav-search-input" value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+              placeholder="Rechercher une montre…" />
+            <button className="nav-search-submit" onClick={submit} aria-label="Rechercher"><IArrow /></button>
+          </div>
+        ) : (
+          <div className="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="index.html#histoire">Notre Histoire</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+        )}
+        <div className="nav-utils">
+          <button className="ic-btn" aria-label={searchOpen ? "Fermer" : "Recherche"} onClick={() => { setSearchOpen(s => !s); if (searchOpen) setQuery(""); }}><ISearch /></button>
+          <button className="ic-btn ham-btn" aria-label={menuOpen ? "Fermer le menu" : "Menu"} onClick={() => setMenuOpen(o => !o)}>{menuOpen ? <IClose /> : <IMenu />}</button>
+        </div>
+      </div>
+      {menuOpen && (
+        <div className="nav-mobile">
+          <a href="index.html">Accueil</a>
+          <a href="catalogue.html">Catalogue</a>
+          <a href="index.html#histoire">Notre Histoire</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+/* ── Badge ── */
+const Badge = ({ label }) => {
+  if (!label) return null;
+  if (label === "Best Seller") return <span className="badge-bs">{label}</span>;
+  if (label === "Limitée")    return <span className="badge-limitee">★ {label}</span>;
+  if (label === "Nouveau")    return <span className="badge-new">{label}</span>;
+  return null;
+};
+
+/* ── Carte produit (related) ── */
+const ProductCard = ({ p }) => (
+  <article className="prod-card" style={{ cursor:"pointer" }} onClick={() => window.location.href = `product.html?ref=${p.ref}`}>
+    <div className="prod-img" style={{ aspectRatio:"4/5" }}>
+      <img src={p.photo} alt={`${p.name} · ${p.collection} · Seiko modifiée CLAVE MODS`} loading="lazy" style={{ objectPosition: p.objPos }} />
+      {p.badge && <div className="ribbon"><Badge label={p.badge} /></div>}
+      <span className="ref">{p.ref}</span>
+    </div>
+    <div className="prod-body">
+      <div className="prod-name-row">
+        <div>
+          <div className="prod-collection-tag">{p.collection}</div>
+          <div className="prod-name">{p.name}</div>
+        </div>
+        <span className="prod-stock low">Sur commande</span>
+      </div>
+      <p className="prod-desc-small">{p.desc}</p>
+      <div className="prod-price-row">
+        <div className="prod-price"><span className="vlt">{p.price}€</span></div>
+        <button className="prod-btn" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>Voir</button>
+      </div>
+    </div>
+  </article>
+);
+
+/* ── Footer ── */
+const Footer = () => (
+  <footer>
+    <div className="footer-inner">
+      <div className="footer-brand">
+        <div className="logo">
+          <img src="assets/clave-logo.png" alt="" />
+          <span><span>CLAVE</span> <span className="mods">MODS</span></span>
+        </div>
+        <p>Maison française de Seiko modifiées artisanalement. Chaque pièce est assemblée, réglée et contrôlée à la main — l'atelier CLAVE, à Toulouse.</p>
+      </div>
+      <div className="footer-col"><h5>Collections</h5><ul>
+        <li><a href="royal-oak.html">Royal Oak</a></li>
+        <li><a href="nautilus.html">Nautilus</a></li>
+        <li><a href="date-just.html">Date Just</a></li>
+        <li><a href="catalogue.html">Voir le catalogue</a></li>
+      </ul></div>
+      <div className="footer-col"><h5>Atelier</h5><ul>
+        <li><a href="index.html#histoire">Notre histoire</a></li>
+      </ul>
+      <h5 style={{ marginTop:"22px" }}>Légal</h5>
+      <ul>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="cgv.html">CGV</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+      </ul></div>
+      <div className="footer-col"><h5>Support</h5><ul>
+        <li><a href="index.html#contact">Nous écrire</a></li>
+      </ul>
+      <h5 style={{ marginTop:"22px" }}>Retrouvez-moi</h5>
+      <ul className="footer-social-links">
+        <li><a href="https://www.instagram.com/clave_mods/" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><IInsta /></span>Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@clavemods" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><ITt /></span>TikTok</a></li>
+        <li><a href="https://www.vinted.fr/member/3155836117" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><IVinted /></span>Vinted</a></li>
+      </ul></div>
+      
+    </div>
+    <div className="footer-bottom">
+      <span>© CLAVE MODS · 2017 — 2026 · Toulouse</span>
+      <div className="footer-legal">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </div>
+      <div className="footer-social">
+        <a href="https://www.instagram.com/clave_mods/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><IInsta /></a>
+        <a href="https://www.tiktok.com/@clavemods" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><ITt /></a>
+        <a href="https://www.vinted.fr/member/3155836117" aria-label="Vinted" target="_blank" rel="noopener noreferrer"><IVinted /></a>
+      </div>
+    </div>
+  </footer>
+);
+
+/* ── Page produit ── */
+function Page() {
+  const ref = new URLSearchParams(window.location.search).get("ref");
+  const p = ALL_PRODUCTS.find((x) => x.ref === ref);
+  const [orderOpen,   setOrderOpen]   = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
+  const orderRef   = useRef(null);
+  const contactRef = useRef(null);
+  useEffect(() => {
+    if (!orderOpen) return;
+    const onDown = (e) => { if (orderRef.current && !orderRef.current.contains(e.target)) setOrderOpen(false); };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [orderOpen]);
+  useEffect(() => {
+    if (!contactOpen) return;
+    const onDown = (e) => { if (contactRef.current && !contactRef.current.contains(e.target)) setContactOpen(false); };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [contactOpen]);
+
+  useEffect(() => {
+    if (!p) return;
+    const BASE = "https://clavemods.fr";
+    const img  = `${BASE}/${p.photo.replace(/ /g, "%20")}`;
+    const url  = `${BASE}/product.html?ref=${p.ref}`;
+    const title = `${p.name} — CLAVE MODS · ${p.collection} · Seiko modifiée`;
+    document.title = title;
+    const set = (sel, val) => { const el = document.querySelector(sel); if (el) el.setAttribute("content", val); };
+    set('meta[name="description"]',          p.desc);
+    set('meta[property="og:title"]',         title);
+    set('meta[property="og:description"]',   p.desc);
+    set('meta[property="og:image"]',         img);
+    set('meta[property="og:url"]',           url);
+    set('meta[name="twitter:title"]',        title);
+    set('meta[name="twitter:description"]',  p.desc);
+    set('meta[name="twitter:image"]',        img);
+    const ld = document.getElementById("jsonld-product");
+    if (ld) ld.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": p.name,
+      "description": p.desc,
+      "image": img,
+      "sku": p.ref,
+      "brand": { "@type": "Brand", "name": "CLAVE MODS" },
+      "offers": {
+        "@type": "Offer",
+        "price": String(p.price),
+        "priceCurrency": "EUR",
+        "availability": p.stock === "En stock" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
+        "url": url,
+        "seller": { "@type": "Organization", "name": "CLAVE MODS", "url": BASE }
+      }
+    });
+  }, [p]);
+
+  if (!p) {
+    return (
+      <>
+        <div className="ship-banner">
+          <span><span className="dot" /> Livraison mondiale offerte dès 150€</span>
+        </div>
+        <Nav />
+        <main>
+          <div className="product-not-found">
+            <div className="eyebrow">Erreur 404</div>
+            <h2>Cette montre n'existe pas ou plus.</h2>
+            <p>La référence demandée est introuvable dans notre catalogue.</p>
+            <a className="cta" href="catalogue.html">← Retour au catalogue <IArrow className="arrow" /></a>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  /* Related : 3 autres de la même collection, compléter si besoin */
+  const sameCol = ALL_PRODUCTS.filter((x) => x.collection === p.collection && x.ref !== p.ref);
+  const others  = ALL_PRODUCTS.filter((x) => x.collection !== p.collection);
+  const related = [...sameCol, ...others].slice(0, 3);
+
+  const specs = [
+    { label:"Référence",   value: p.ref },
+    { label:"Collection",  value: p.collection },
+    { label:"Mouvement",   value: p.mouvement },
+    { label:"Étanchéité",  value: p.etancheite },
+    { label:"Verre",       value: p.verre },
+    { label:"Boîtier",     value: p.boitier },
+    { label:"Bracelet",    value: p.bracelet },
+    { label:"Garantie",    value: p.garantie },
+  ];
+
+  const isOrder = p.stock === "Sur commande" || !p.stock;
+
+  return (
+    <>
+      {/* Bandeau */}
+      <div className="ship-banner">
+        <span><span className="dot" /> Livraison mondiale offerte dès 150€</span>
+        <span className="sep ship-extra">✦</span>
+        <span className="ship-extra">Pièces numérotées, assemblées à Toulouse</span>
+        <span className="sep ship-extra">✦</span>
+        <span className="ship-extra">Garantie 3 ans atelier</span>
+      </div>
+
+      <Nav />
+
+      <main>
+      {/* Fil d'Ariane */}
+      <nav className="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="index.html">Accueil</a>
+        <span className="sep">›</span>
+        <a href="catalogue.html">Catalogue</a>
+        <span className="sep">›</span>
+        <a href={p.collectionHref}>{p.collection}</a>
+        <span className="sep">›</span>
+        <span style={{ color:"var(--fg-2)" }}>{p.name}</span>
+      </nav>
+
+      {/* Hero */}
+      <div className="product-hero">
+
+        {/* Image */}
+        <div className="product-img-wrap">
+          <img src={p.photo} alt={`${p.name} · ${p.collection} · Seiko modifiée CLAVE MODS, Toulouse`} style={{ objectPosition: p.objPos }} />
+          {p.badge && (
+            <div className="product-img-badge">
+              <Badge label={p.badge} />
+            </div>
+          )}
+        </div>
+
+        {/* Infos */}
+        <div className="product-info">
+          <div>
+            <div className="product-collection-tag">{p.collection} · Seiko mod</div>
+            <div className="product-ref" style={{ marginTop:8 }}>{p.ref}</div>
+          </div>
+
+          <h1 className="product-name">{p.name}</h1>
+
+          <p className="product-desc">{p.desc}</p>
+
+          <div className="product-divider" />
+
+          <div className="product-price-block">
+            <div className="product-price">{p.price}€</div>
+            <div className="product-price-note">TTC · Livraison offerte dès 150€</div>
+          </div>
+
+          <div className={`product-stock ${isOrder ? "order" : "instock"}`}>
+            <span className="stock-dot" />
+            {isOrder ? "Sur commande" : "En stock"}
+          </div>
+
+          <div className="product-ctas">
+            <div className="contact-picker" ref={orderRef}>
+              <button
+                className="product-cta-main"
+                onClick={() => { setOrderOpen(o => !o); setContactOpen(false); }}
+                style={{ width:"100%" }}
+              >
+                Commander cette montre <IArrow />
+              </button>
+              {orderOpen && (
+                <div className="contact-menu">
+                  <a
+                    href="https://www.instagram.com/clave_mods/"
+                    target="_blank" rel="noopener noreferrer"
+                    className="contact-option"
+                    onClick={() => setOrderOpen(false)}
+                  >
+                    <span className="contact-opt-icon"><IInsta /></span>
+                    <span>
+                      <strong style={{ display:"block", fontSize:13 }}>Instagram</strong>
+                      <span style={{ fontSize:11, opacity:.7 }}>@clave_mods</span>
+                    </span>
+                  </a>
+                  <a
+                    href={`https://wa.me/+33765836835?text=${encodeURIComponent(`Bonjour, je souhaite commander la ${p.name} (réf. ${p.ref}) à ${p.price}€. Pouvez-vous me confirmer la disponibilité ?`)}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className="contact-option"
+                    onClick={() => setOrderOpen(false)}
+                  >
+                    <span className="contact-opt-icon"><IWa /></span>
+                    <span>
+                      <strong style={{ display:"block", fontSize:13 }}>WhatsApp</strong>
+                      <span style={{ fontSize:11, opacity:.7 }}>Message pré-rempli</span>
+                    </span>
+                  </a>
+                </div>
+              )}
+            </div>
+            <div className="contact-picker" ref={contactRef}>
+              <button
+                className="product-cta-ghost"
+                onClick={() => { setContactOpen(o => !o); setOrderOpen(false); }}
+              >
+                Poser une question
+              </button>
+              {contactOpen && (
+                <div className="contact-menu">
+                  <a href="https://www.instagram.com/clave_mods/" target="_blank" rel="noopener noreferrer" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><IInsta /></span>Instagram
+                  </a>
+                  <a href="https://www.tiktok.com/@clavemods" target="_blank" rel="noopener noreferrer" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><ITt /></span>TikTok
+                  </a>
+                  <a href="https://wa.me/+33765836835" target="_blank" rel="noopener noreferrer" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><IWa /></span>WhatsApp
+                  </a>
+                  <a href="mailto:clavemods@gmail.com" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><IMail /></span>E-mail
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="product-reassurance">
+            <div className="reassurance-item">
+              <ILock /> Paiement sécurisé
+            </div>
+            <div className="reassurance-item">
+              <ITruck /> Livraison suivie
+            </div>
+            <div className="reassurance-item">
+              <IShield /> Garantie 3 ans
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Specs */}
+      <div className="product-specs-section">
+        <div className="product-specs-inner">
+          <div className="eyebrow">Spécifications techniques</div>
+          <h2 className="h-section" style={{ marginTop:16 }}>
+            Ce qui la<br />
+            <span className="it">compose.</span>
+          </h2>
+          <div className="specs-grid">
+            {specs.map((s) => (
+              <div className="spec-cell" key={s.label}>
+                <span className="spec-label">{s.label}</span>
+                <span className="spec-value">{s.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Vous aimerez aussi */}
+      <div className="product-related">
+        <div className="sec-head">
+          <div className="left">
+            <div className="eyebrow">Dans la même collection</div>
+            <h2 className="h-section">
+              Vous aimerez<br />
+              <span className="it">aussi.</span>
+            </h2>
+          </div>
+          <div className="meta">
+            <a className="link-arrow" href={p.collectionHref}>
+              Voir toute la collection <IArrow />
+            </a>
+          </div>
+        </div>
+        <div className="related-grid">
+          {related.map((r) => <ProductCard key={r.ref} p={r} />)}
+        </div>
+      </div>
+      </main>
+
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

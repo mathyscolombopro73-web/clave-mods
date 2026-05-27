@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /mentions-legales.html
+Disallow: /cgv.html
+Disallow: /confidentialite.html
+
+Sitemap: https://clavemods.fr/sitemap.xml
