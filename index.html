@@ -1,0 +1,663 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CLAVE MODS — Montres Seiko modifiées artisanalement · Toulouse</title>
+<meta name="description" content="CLAVE MODS — Marque française de Seiko modifiées. Pièces uniques assemblées main à Toulouse. Catalogue de 110 à 150€. Livraison mondiale." />
+<!-- Open Graph / Twitter — ⚠ remplacer clavemods.fr par le domaine réel avant mise en ligne -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="CLAVE MODS" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="CLAVE MODS — Montres Seiko modifiées artisanalement · Toulouse" />
+<meta property="og:description" content="Maison française de Seiko modifiées. Pièces uniques assemblées à la main à Toulouse. De 110 à 150€. Livraison mondiale." />
+<meta property="og:image" content="https://clavemods.fr/assets/collections/royal-oak.png" />
+<meta property="og:url" content="https://clavemods.fr/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CLAVE MODS — Montres Seiko modifiées artisanalement · Toulouse" />
+<meta name="twitter:description" content="Maison française de Seiko modifiées. Pièces uniques assemblées à la main à Toulouse. De 110 à 150€. Livraison mondiale." />
+<meta name="twitter:image" content="https://clavemods.fr/assets/collections/royal-oak.png" />
+
+<link rel="icon" type="image/png" href="assets/clave-logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="root"></div>
+
+<!-- React + Babel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Data -->
+<script src="data.js"></script>
+
+<!-- Tweaks panel (inlined — évite les restrictions CORS file://) -->
+<script type="text/babel" data-presets="react">
+const __TWEAKS_STYLE = `
+  .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
+    max-height:calc(100vh - 32px);display:flex;flex-direction:column;
+    transform:scale(var(--dc-inv-zoom,1));transform-origin:bottom right;
+    background:rgba(250,249,247,.78);color:#29261b;
+    -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+    border:.5px solid rgba(255,255,255,.6);border-radius:14px;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
+    font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
+  .twk-hd{display:flex;align-items:center;justify-content:space-between;
+    padding:10px 8px 10px 14px;cursor:move;user-select:none}
+  .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
+  .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
+    width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
+  .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
+  .twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
+    overflow-y:auto;overflow-x:hidden;min-height:0;
+    scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
+  .twk-row{display:flex;flex-direction:column;gap:5px}
+  .twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+  .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;color:rgba(41,38,27,.72)}
+  .twk-lbl>span:first-child{font-weight:500}
+  .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(41,38,27,.45);padding:10px 0 0}
+  .twk-sect:first-child{padding-top:0}
+  .twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
+    background:rgba(0,0,0,.06);user-select:none}
+  .twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
+    background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(0,0,0,.12);
+    transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s}
+  .twk-seg button{appearance:none;position:relative;z-index:1;flex:1;border:0;
+    background:transparent;color:inherit;font:inherit;font-weight:500;min-height:22px;
+    border-radius:6px;cursor:default;padding:4px 6px;line-height:1.2}
+  .twk-toggle{position:relative;width:32px;height:18px;border:0;border-radius:999px;
+    background:rgba(0,0,0,.15);transition:background .15s;cursor:default;padding:0}
+  .twk-toggle[data-on="1"]{background:#34c759}
+  .twk-toggle i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+    background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+  .twk-toggle[data-on="1"] i{transform:translateX(14px)}
+  .twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;cursor:default;background:transparent;flex-shrink:0}
+  .twk-swatch::-webkit-color-swatch-wrapper{padding:0}
+  .twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}
+  .twk-chips{display:flex;gap:6px}
+  .twk-chip{position:relative;appearance:none;flex:1;min-width:0;height:46px;
+    padding:0;border:0;border-radius:6px;overflow:hidden;cursor:default;
+    box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.06);transition:transform .12s}
+  .twk-chip:hover{transform:translateY(-1px)}
+  .twk-chip[data-on="1"]{box-shadow:0 0 0 1.5px rgba(0,0,0,.85),0 2px 6px rgba(0,0,0,.15)}
+`;
+
+function useTweaks(defaults) {
+  const [values, setValues] = React.useState(defaults);
+  const setTweak = React.useCallback((keyOrEdits, val) => {
+    const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null ? keyOrEdits : { [keyOrEdits]: val };
+    setValues((prev) => ({ ...prev, ...edits }));
+  }, []);
+  return [values, setTweak];
+}
+
+function TweaksPanel({ title = 'Tweaks', children }) {
+  const [open, setOpen] = React.useState(false);
+  const dragRef = React.useRef(null);
+  const offsetRef = React.useRef({ x: 16, y: 16 });
+  const PAD = 16;
+  const clampToViewport = React.useCallback(() => {
+    const panel = dragRef.current; if (!panel) return;
+    const maxRight = Math.max(PAD, window.innerWidth - panel.offsetWidth - PAD);
+    const maxBottom = Math.max(PAD, window.innerHeight - panel.offsetHeight - PAD);
+    offsetRef.current = { x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)), y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)) };
+    panel.style.right = offsetRef.current.x + 'px'; panel.style.bottom = offsetRef.current.y + 'px';
+  }, []);
+  React.useEffect(() => {
+    const onMsg = (e) => { if (e?.data?.type === '__activate_edit_mode') setOpen(true); else if (e?.data?.type === '__deactivate_edit_mode') setOpen(false); };
+    window.addEventListener('message', onMsg); return () => window.removeEventListener('message', onMsg);
+  }, []);
+  const onDragStart = (e) => {
+    const panel = dragRef.current; if (!panel) return;
+    const r = panel.getBoundingClientRect();
+    const sx = e.clientX, startRight = window.innerWidth - r.right, startBottom = window.innerHeight - r.bottom;
+    const move = (ev) => { offsetRef.current = { x: startRight - (ev.clientX - sx), y: startBottom - (ev.clientY - sx) }; clampToViewport(); };
+    const up = () => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', up); };
+    window.addEventListener('mousemove', move); window.addEventListener('mouseup', up);
+  };
+  if (!open) return null;
+  return (
+    <>
+      <style>{__TWEAKS_STYLE}</style>
+      <div ref={dragRef} className="twk-panel" style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+        <div className="twk-hd" onMouseDown={onDragStart}>
+          <b>{title}</b>
+          <button className="twk-x" onMouseDown={(e) => e.stopPropagation()} onClick={() => setOpen(false)}>✕</button>
+        </div>
+        <div className="twk-body">{children}</div>
+      </div>
+    </>
+  );
+}
+
+function TweakSection({ label, children }) { return <><div className="twk-sect">{label}</div>{children}</>; }
+
+function TweakToggle({ label, value, onChange }) {
+  return (
+    <div className="twk-row twk-row-h">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <button type="button" className="twk-toggle" data-on={value ? '1' : '0'} onClick={() => onChange(!value)}><i /></button>
+    </div>
+  );
+}
+
+function TweakRadio({ label, value, options, onChange }) {
+  const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
+  const idx = Math.max(0, opts.findIndex((o) => o.value === value));
+  const n = opts.length;
+  return (
+    <div className="twk-row">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <div role="radiogroup" className="twk-seg">
+        <div className="twk-seg-thumb" style={{ left: `calc(2px + ${idx} * (100% - 4px) / ${n})`, width: `calc((100% - 4px) / ${n})` }} />
+        {opts.map((o) => <button key={o.value} type="button" role="radio" aria-checked={o.value === value} onClick={() => onChange(o.value)}>{o.label}</button>)}
+      </div>
+    </div>
+  );
+}
+
+function TweakColor({ label, value, options, onChange }) {
+  if (!options || !options.length) {
+    return (
+      <div className="twk-row twk-row-h">
+        <div className="twk-lbl"><span>{label}</span></div>
+        <input type="color" className="twk-swatch" value={value} onChange={(e) => onChange(e.target.value)} />
+      </div>
+    );
+  }
+  const key = (o) => String(JSON.stringify(o)).toLowerCase();
+  const cur = key(value);
+  return (
+    <div className="twk-row">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <div className="twk-chips" role="radiogroup">
+        {options.map((o, i) => {
+          const hero = Array.isArray(o) ? o[0] : o;
+          const on = key(o) === cur;
+          return <button key={i} type="button" className="twk-chip" role="radio" data-on={on ? '1' : '0'} style={{ background: hero }} onClick={() => onChange(o)} />;
+        })}
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakRadio, TweakColor });
+</script>
+
+<!-- App (inlined — évite les restrictions CORS file://) -->
+<script type="text/babel" data-presets="react">
+/* global React, ReactDOM, useTweaks, TweaksPanel, TweakSection, TweakColor, TweakToggle, TweakRadio */
+const { useState, useEffect, useRef } = React;
+
+const TWEAK_DEFAULTS = { "violet": "#8b7fe0", "metallic": "gold", "shipping": true };
+
+const I = {
+  search: (p) => <svg {...p} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>,
+  arrow:  (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>,
+  insta:  (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>,
+  tt:     (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M14 4v9a4 4 0 1 1-4-4" /><path d="M14 4c0 2.5 2 4.5 5 4.5" /></svg>,
+  vinted: (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/></svg>,
+  wa:     (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>,
+  mail:   (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>,
+  menu:   (p) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 12h18M3 6h18M3 18h18"/></svg>,
+  close:  (p) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M18 6L6 18M6 6l12 12"/></svg>,
+};
+
+const ShipBanner = () => (
+  <div className="ship-banner">
+    <span><span className="dot" /> Livraison mondiale offerte dès 150€</span>
+    <span className="sep ship-extra">✦</span>
+    <span className="ship-extra">Pièces numérotées, assemblées à Toulouse</span>
+    <span className="sep ship-extra">✦</span>
+    <span className="ship-extra">Garantie 3 ans atelier</span>
+  </div>
+);
+
+const Nav = ({ onJump }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const inputRef = useRef(null);
+  useEffect(() => {
+    const f = () => setScrolled(window.scrollY > 4);
+    window.addEventListener("scroll", f, { passive: true }); f();
+    return () => window.removeEventListener("scroll", f);
+  }, []);
+  useEffect(() => {
+    if (!searchOpen) return;
+    const onKey  = (e) => { if (e.key === "Escape") { setSearchOpen(false); setQuery(""); } };
+    const onDown = (e) => { if (!e.target.closest(".nav")) { setSearchOpen(false); setQuery(""); } };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onDown);
+    return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("mousedown", onDown); };
+  }, [searchOpen]);
+  useEffect(() => { if (searchOpen && inputRef.current) inputRef.current.focus(); }, [searchOpen]);
+  const submit = () => {
+    if (!query.trim()) return;
+    window.location.href = `catalogue.html?q=${encodeURIComponent(query.trim())}`;
+  };
+  return (
+    <nav className="nav" style={{ borderBottomColor: scrolled ? "var(--hairline-strong)" : "var(--hairline)" }}>
+      <div className="nav-inner">
+        <a className="nav-logo" href="#accueil" onClick={(e) => { e.preventDefault(); onJump("accueil"); }}>
+          <img src="assets/clave-logo.png" alt="" />
+          <span><span className="mark">CLAVE</span> <span className="mods">MODS</span></span>
+        </a>
+        {searchOpen ? (
+          <div className="nav-search">
+            <input ref={inputRef} type="text" className="nav-search-input" value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+              placeholder="Rechercher une montre…" />
+            <button className="nav-search-submit" onClick={submit} aria-label="Rechercher"><I.arrow /></button>
+          </div>
+        ) : (
+          <div className="nav-links">
+            <a className="active" href="#accueil" onClick={(e) => { e.preventDefault(); onJump("accueil"); }}>Accueil</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="#histoire" onClick={(e) => { e.preventDefault(); onJump("histoire"); }}>Notre Histoire</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); onJump("contact"); }}>Contact</a>
+          </div>
+        )}
+        <div className="nav-utils">
+          <button className="ic-btn" aria-label={searchOpen ? "Fermer" : "Recherche"} onClick={() => { setSearchOpen(s => !s); if (searchOpen) setQuery(""); }}><I.search /></button>
+          <button className="ic-btn ham-btn" aria-label={menuOpen ? "Fermer le menu" : "Menu"} onClick={() => setMenuOpen(o => !o)}>{menuOpen ? <I.close /> : <I.menu />}</button>
+        </div>
+      </div>
+      {menuOpen && (
+        <div className="nav-mobile">
+          <a className="active" href="#accueil" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onJump("accueil"); }}>Accueil</a>
+          <a href="catalogue.html" onClick={() => setMenuOpen(false)}>Catalogue</a>
+          <a href="#histoire" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onJump("histoire"); }}>Notre Histoire</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onJump("contact"); }}>Contact</a>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+const HERO_SLIDES = [
+  { id: "royal-oak", name: "Royal Oak", photo: "assets/collections/royal-oak.png", caption: "CLM · Famille Royal Oak" },
+  { id: "nautilus",  name: "Nautilus",  photo: "assets/collections/nautilus.png",  caption: "CLM · Famille Nautilus"  },
+  { id: "date-just", name: "Date Just", photo: "assets/collections/date-just.png", caption: "CLM · Famille Date Just" },
+];
+
+const Hero = ({ onJump }) => {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx((i) => (i + 1) % HERO_SLIDES.length), 4200);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <header className="hero" id="accueil">
+      <div className="hero-inner">
+        <div className="hero-left">
+          <div className="eyebrow">MAISON CLAVE · ATELIER TOULOUSE</div>
+          <h1>CLAVE<span className="vlt">mods de caractère.</span></h1>
+          <p className="hero-sub">Des Seiko modifiées à la main, dans un atelier toulousain. Je choisis les composants un à un, je règle chaque pièce comme la mienne — et personne ne porte la même montre que vous.</p>
+          <div className="hero-actions">
+            <button className="cta" onClick={() => onJump("collections")}>Découvrir la collection <I.arrow className="arrow" /></button>
+            <button className="cta-ghost" onClick={() => onJump("histoire")}>Notre histoire</button>
+          </div>
+          <div className="hero-meta">
+            <div className="m"><span className="v">110 — 150€</span><span className="k">Gamme de prix</span></div>
+            <div className="m"><span className="v">{window.CLAVE_DATA.products.length}</span><span className="k">Références</span></div>
+            <div className="m"><span className="v">3 ans</span><span className="k">Garantie atelier</span></div>
+          </div>
+        </div>
+        <div className="hero-right">
+          <span className="hero-corner tl" /><span className="hero-corner tr" />
+          <span className="hero-corner bl" /><span className="hero-corner br" />
+          <span className="hero-tag-tl">{HERO_SLIDES[idx].caption}</span>
+          <span className="hero-tag-br">CALIBRE NH35 · Ø 41 mm</span>
+          {HERO_SLIDES.map((s, i) => (
+            <img key={s.id} src={s.photo} alt={`Collection ${s.name} — Seiko modifiée CLAVE MODS, Toulouse`} className={`hero-slide ${i === idx ? "active" : ""}`} />
+          ))}
+          <div className="hero-dots">
+            {HERO_SLIDES.map((s, i) => (
+              <button key={s.id} className={`hero-dot ${i === idx ? "active" : ""}`} aria-label={`Voir ${s.name}`} onClick={() => setIdx(i)}>
+                <span className="hero-dot-label">{s.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+const Collections = () => {
+  const cols = window.CLAVE_DATA.collections;
+  return (
+    <section className="wrap reveal" id="collections">
+      <div className="sec-head">
+        <div className="left">
+          <div className="eyebrow">01 · Collections</div>
+          <h2 className="h-section">Trois familles,<br /><span className="it">un même atelier.</span></h2>
+        </div>
+        <div className="meta">
+          <span className="label" style={{ color: "var(--violet-2)" }}>{window.CLAVE_DATA.products.length} PIÈCES OUVERTES À LA CONFIGURATION</span>
+          <span className="label">MISE À JOUR HEBDOMADAIRE</span>
+        </div>
+      </div>
+      <div className="col-grid">
+        {cols.map((c) => (
+          <a key={c.id} href={c.url || `#col-${c.id}`} className="col-card">
+            <div className="col-img">
+              <img src={c.photo} alt={`Collection ${c.name} — Seiko modifiées CLAVE MODS Toulouse`} loading="lazy"
+                   style={c.id === "royal-oak" ? { objectPosition: "center 30%" } : {}} />
+              <span className="col-corner tl" /><span className="col-corner tr" />
+              <span className="col-corner bl" /><span className="col-corner br" />
+              <span className="col-count">{c.count} pièces</span>
+            </div>
+            <div className="col-foot">
+              <span className="col-name">{c.name}</span>
+              <span className="col-link">Voir la collection <I.arrow /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const ProductCard = ({ p }) => {
+  return (
+    <article className="prod-card" style={{ cursor: "pointer" }} onClick={() => window.location.href = `product.html?ref=${p.ref}`}>
+      <div className="prod-img">
+        <img src={p.photo} alt={`${p.name} · ${p.collection} · Seiko modifiée CLAVE MODS`} loading="lazy"
+             style={{ objectPosition: p.objPos || "center" }} />
+        <span className="ref">{p.ref}</span>
+      </div>
+      <div className="prod-body">
+        <div className="prod-name-row">
+          <div><div className="prod-name">{p.name}</div><div className="prod-style">{p.tag}</div></div>
+          <span className="prod-stock">{p.stock}</span>
+        </div>
+        <div className="prod-price-row">
+          <div className="prod-price">
+            {p.oldPrice && <span className="old">{p.oldPrice}€</span>}
+            <span className="vlt">{p.price}€</span>
+          </div>
+          <a href={`product.html?ref=${p.ref}`} className="prod-btn" onClick={(e) => e.stopPropagation()}>Voir la montre</a>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+const Bestsellers = () => {
+  const products = window.CLAVE_DATA.bestsellers;
+  return (
+    <section className="wrap reveal" id="catalogue">
+      <div className="sec-head">
+        <div className="left">
+          <div className="eyebrow">02 · Meilleures ventes</div>
+          <h2 className="h-section">Les pièces qui<br /><span className="it">partent les premières.</span></h2>
+        </div>
+        <div className="meta">
+          <span className="label" style={{ color: "var(--violet-2)" }}>SIX MODÈLES PHARES</span>
+          <a className="link-arrow" href="catalogue.html" style={{ marginTop: 4 }}>Voir tout le catalogue <I.arrow /></a>
+        </div>
+      </div>
+      <div className="pay-note">
+        <span className="pay-dot" />
+        <span className="pay-text"><strong>Paiement en deux fois</strong> pour les pièces sur-mesure — acompte de 70€ à la commande, solde avant l'envoi. Les pièces en stock partent sous 48h, réglées en une fois.</span>
+      </div>
+      <div className="prod-grid">
+        {products.map((p) => <ProductCard key={p.id} p={p} />)}
+      </div>
+    </section>
+  );
+};
+
+const Lookbook = () => {
+  const items = window.CLAVE_DATA.lookbook;
+  return (
+    <section className="wrap reveal" id="lookbook">
+      <div className="sec-head">
+        <div className="left">
+          <div className="eyebrow">03 · Campagne · Printemps 2026</div>
+          <h2 className="h-section">Quatre pièces,<br /><span className="it">une saison.</span></h2>
+        </div>
+        <div style={{ maxWidth: 360 }}>
+          <p style={{ color: "var(--fg-2)", fontSize: 14.5, lineHeight: 1.65 }}>Notre nouvelle série Printemps. Quatre cadrans, quatre ambiances — photographiés à l'atelier, prêts à porter ou à configurer.</p>
+        </div>
+      </div>
+      <div className="lookbook-grid">
+        {items.map((it) => (
+          <article key={it.id} className="look-tile" style={{ cursor: "pointer" }} onClick={() => window.location.href = `product.html?ref=${it.ref}`}>
+            <div className="look-img">
+              <img src={it.photo} alt={`${it.name} — ${it.tag} · Seiko modifiée CLAVE MODS`} loading="lazy" />
+              <span className="look-corner tl" /><span className="look-corner tr" />
+              <span className="look-corner bl" /><span className="look-corner br" />
+              <span className="look-ref">CLM · {it.ref.replace("CLM-", "")}</span>
+            </div>
+            <div className="look-foot">
+              <div className="look-foot-l">
+                <span className="look-tag">{it.tag}</span>
+                <span className="look-name">{it.name}</span>
+                <span className="look-sub">{it.sub}</span>
+              </div>
+              <div className="look-foot-r">
+                <span className="look-price">{it.price}€</span>
+                <a href={`product.html?ref=${it.ref}`} className="look-link" onClick={(e) => e.stopPropagation()}>Voir la pièce <I.arrow /></a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Stats = () => (
+  <div className="stats-bar">
+    {window.CLAVE_DATA.stats.map((s) => (
+      <div className="stats-cell" key={s.k}>
+        <span className="v">{s.n}</span><span className="k">{s.k}</span>
+      </div>
+    ))}
+  </div>
+);
+
+const Pourquoi = () => {
+  const items = window.CLAVE_DATA.pourquoi;
+  return (
+    <section className="wrap pourquoi reveal" id="histoire">
+      <div className="sec-head">
+        <div className="left">
+          <div className="eyebrow">04 · Notre méthode</div>
+          <h2 className="h-section">Pourquoi<br /><span className="it">CLAVE MODS.</span></h2>
+        </div>
+        <div style={{ maxWidth: 360 }}>
+          <p style={{ color: "var(--fg-2)", fontSize: 14.5, lineHeight: 1.65 }}>Trois principes, ma manière de travailler depuis 2017 — atelier solo, une seule paire de mains derrière chaque pièce.</p>
+        </div>
+      </div>
+      <div className="pourquoi-grid">
+        {items.map((it) => (
+          <div className="pourquoi-cell" key={it.n}>
+            <span className="pourquoi-icon">{it.n}</span>
+            <h3>{it.t}</h3>
+            <p>{it.p}</p>
+          </div>
+        ))}
+      </div>
+      <Stats />
+    </section>
+  );
+};
+
+const FAQ = () => {
+  const items = window.CLAVE_DATA.faq;
+  const [open, setOpen] = useState(0);
+  const [contactOpen, setContactOpen] = useState(false);
+  const contactRef = useRef(null);
+  useEffect(() => {
+    if (!contactOpen) return;
+    const onDown = (e) => { if (contactRef.current && !contactRef.current.contains(e.target)) setContactOpen(false); };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [contactOpen]);
+  return (
+    <section className="wrap reveal" id="contact">
+      <div className="sec-head">
+        <div className="left">
+          <div className="eyebrow">05 · Questions fréquentes</div>
+          <h2 className="h-section">Tout ce qu'on nous<br /><span className="it">demande souvent.</span></h2>
+        </div>
+      </div>
+      <div className="faq-grid">
+        <aside className="faq-side">
+          <p style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: ".2em", color: "var(--violet-2)", textTransform: "uppercase" }}>Une question hors-liste ?</p>
+          <h3 style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: 28, lineHeight: 1.15, letterSpacing: "-0.01em" }}>On répond sous 24h, du mardi au samedi.</h3>
+          <p>Écrivez-nous directement — réponse personnelle sous 24h, du mardi au samedi. Pour une configuration sur-mesure ou une question technique, je prends le temps qu'il faut.</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 8 }}>
+            <div className="contact-picker" ref={contactRef}>
+              <button className="cta" onClick={() => setContactOpen(o => !o)} style={{ alignSelf: "flex-start" }}>
+                Nous écrire <I.arrow className="arrow" />
+              </button>
+              {contactOpen && (
+                <div className="contact-menu">
+                  <a href="https://www.instagram.com/clave_mods/" target="_blank" rel="noopener noreferrer" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><I.insta /></span>Instagram
+                  </a>
+                  <a href="https://www.tiktok.com/@clavemods" target="_blank" rel="noopener noreferrer" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><I.tt /></span>TikTok
+                  </a>
+                  <a href="https://wa.me/+33765836835" target="_blank" rel="noopener noreferrer" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><I.wa /></span>WhatsApp
+                  </a>
+                  <a href="mailto:clavemods@gmail.com" className="contact-option" onClick={() => setContactOpen(false)}>
+                    <span className="contact-opt-icon"><I.mail /></span>E-mail
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </aside>
+        <div className="faq-list">
+          {items.map((it, i) => (
+            <div key={i} className={`faq-item ${open === i ? "open" : ""}`}>
+              <button className="faq-question" aria-expanded={open === i} aria-controls={`faq-a-${i}`} onClick={() => setOpen(open === i ? -1 : i)}>
+                <span className="num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <span className="q-text">{it.q}</span>
+                <span className="icon" aria-hidden="true">+</span>
+              </button>
+              <div className="faq-answer" id={`faq-a-${i}`}><div><p style={{ paddingTop: 4 }}>{it.a}</p></div></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => (
+  <footer>
+    <div className="footer-inner">
+      <div className="footer-brand">
+        <div className="logo"><img src="assets/clave-logo.png" alt="" /><span><span>CLAVE</span> <span className="mods">MODS</span></span></div>
+        <p>Maison française de Seiko modifiées artisanalement. Chaque pièce est assemblée, réglée et contrôlée à la main, par une seule personne — l'atelier CLAVE, à Toulouse.</p>
+      </div>
+      <div className="footer-col"><h5>Collections</h5><ul><li><a href="royal-oak.html">Royal Oak</a></li><li><a href="nautilus.html">Nautilus</a></li><li><a href="date-just.html">Date Just</a></li><li><a href="catalogue.html">Voir le catalogue</a></li></ul></div>
+      <div className="footer-col"><h5>Atelier</h5><ul><li><a href="#histoire">Notre histoire</a></li></ul>
+      <h5 style={{ marginTop:"22px" }}>Légal</h5>
+      <ul><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="cgv.html">CGV</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+      <div className="footer-col"><h5>Support</h5><ul><li><a href="#contact">Nous écrire</a></li></ul>
+      <h5 style={{ marginTop:"22px" }}>Retrouvez-moi</h5>
+      <ul className="footer-social-links">
+        <li><a href="https://www.instagram.com/clave_mods/" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><I.insta /></span>Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@clavemods" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><I.tt /></span>TikTok</a></li>
+        <li><a href="https://www.vinted.fr/member/3155836117" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><I.vinted /></span>Vinted</a></li>
+      </ul></div>
+    </div>
+    <div className="footer-bottom">
+      <span>© CLAVE MODS · 2017 — 2026 · Toulouse</span>
+      <div className="footer-legal">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </div>
+      <div className="footer-social">
+        <a href="https://www.instagram.com/clave_mods/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><I.insta /></a>
+        <a href="https://www.tiktok.com/@clavemods" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><I.tt /></a>
+        <a href="https://www.vinted.fr/member/3155836117" aria-label="Vinted" target="_blank" rel="noopener noreferrer"><I.vinted /></a>
+      </div>
+    </div>
+  </footer>
+);
+
+const useReveal = () => {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: "0px 0px -8% 0px" });
+    els.forEach((el) => { if (!el.classList.contains("in")) io.observe(el); });
+    return () => io.disconnect();
+  }, []);
+};
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  useReveal();
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--violet", t.violet);
+    root.style.setProperty("--violet-2", t.violet);
+    const metals = { gold: "#c9a876", silver: "#b8b8c8", copper: "#b87555" };
+    root.style.setProperty("--gold", metals[t.metallic] || "#c9a876");
+  }, [t]);
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const tid = setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 78, behavior: "smooth" });
+    }, 150);
+    return () => clearTimeout(tid);
+  }, []);
+  const jump = (id) => {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 78, behavior: "smooth" });
+  };
+  return (
+    <>
+      {t.shipping && <ShipBanner />}
+      <Nav onJump={jump} />
+      <main>
+        <Hero onJump={jump} />
+        <Collections />
+        <Bestsellers />
+        <Lookbook />
+        <Pourquoi />
+        <FAQ />
+      </main>
+      <Footer />
+      <TweaksPanel title="CLAVE · Tweaks">
+        <TweakSection label="Identité" />
+        <TweakColor label="Violet signature" value={t.violet} options={["#8b7fe0","#7B6FD4","#a59cea","#6b5fcc","#9b7fe0"]} onChange={(v) => setTweak("violet", v)} />
+        <TweakRadio label="Métal d'accent" value={t.metallic} options={["gold","silver","copper"]} onChange={(v) => setTweak("metallic", v)} />
+        <TweakSection label="Éléments" />
+        <TweakToggle label="Bandeau livraison" value={t.shipping} onChange={(v) => setTweak("shipping", v)} />
+      </TweaksPanel>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+</body>
+</html>
