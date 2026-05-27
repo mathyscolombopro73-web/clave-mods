@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Politique de confidentialité — CLAVE MODS</title>
+<meta name="description" content="Politique de confidentialité et cookies CLAVE MODS — traitement des données personnelles, vos droits RGPD." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/png" href="assets/clave-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.legal-hero {
+  padding: 64px var(--gutter) 48px;
+  max-width: var(--wrap);
+  margin: 0 auto;
+}
+.legal-hero h1 {
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  color: var(--fg);
+  margin: 16px 0 20px;
+}
+.legal-hero h1 .it {
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--violet-2);
+  font-size: 0.52em;
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+}
+.legal-hero .legal-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.legal-divider {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  border-bottom: 1px solid var(--hairline);
+}
+.legal-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 56px var(--gutter) 100px;
+}
+.legal-body h2 {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin: 52px 0 16px;
+  padding-top: 52px;
+  border-top: 1px solid var(--hairline);
+}
+.legal-body h2:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.legal-body h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--violet-2);
+  margin: 28px 0 10px;
+}
+.legal-body p {
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+.legal-body ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.legal-body ul li {
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.75;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 4px;
+}
+.legal-body ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--fg-mute);
+}
+.legal-body strong { color: var(--fg); font-weight: 600; }
+.legal-body a { color: var(--violet-2); transition: color .2s; }
+.legal-body a:hover { color: var(--violet); }
+.lp {
+  display: inline-block;
+  background: rgba(139, 127, 224, .12);
+  border: 1px dashed rgba(139, 127, 224, .4);
+  border-radius: 4px;
+  padding: 0 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: var(--violet-2);
+}
+.rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.rights-item {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.rights-item .ri-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--violet-2);
+  display: block;
+  margin-bottom: 6px;
+}
+.rights-item p { font-size: 13px; margin: 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="data.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef } = React;
+
+const IArrow  = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>;
+const ISearch = (p) => <svg {...p} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>;
+const IInsta  = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>;
+const ITt     = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M14 4v9a4 4 0 1 1-4-4"/><path d="M14 4c0 2.5 2 4.5 5 4.5"/></svg>;
+const IVinted = (p) => <svg {...p} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/></svg>;
+const IMenu   = (p) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 12h18M3 6h18M3 18h18"/></svg>;
+const IClose  = (p) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M18 6L6 18M6 6l12 12"/></svg>;
+
+const Nav = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const inputRef = useRef(null);
+  useEffect(() => {
+    const f = () => setScrolled(window.scrollY > 4);
+    window.addEventListener("scroll", f, { passive: true }); f();
+    return () => window.removeEventListener("scroll", f);
+  }, []);
+  useEffect(() => {
+    if (!searchOpen) return;
+    const onKey  = (e) => { if (e.key === "Escape") { setSearchOpen(false); setQuery(""); } };
+    const onDown = (e) => { if (!e.target.closest(".nav")) { setSearchOpen(false); setQuery(""); } };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onDown);
+    return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("mousedown", onDown); };
+  }, [searchOpen]);
+  useEffect(() => { if (searchOpen && inputRef.current) inputRef.current.focus(); }, [searchOpen]);
+  const submit = () => {
+    if (!query.trim()) return;
+    window.location.href = `catalogue.html?q=${encodeURIComponent(query.trim())}`;
+  };
+  return (
+    <nav className="nav" style={{ borderBottomColor: scrolled ? "var(--hairline-strong)" : "var(--hairline)" }}>
+      <div className="nav-inner">
+        <a className="nav-logo" href="index.html">
+          <img src="assets/clave-logo.png" alt="" />
+          <span><span className="mark">CLAVE</span> <span className="mods">MODS</span></span>
+        </a>
+        {searchOpen ? (
+          <div className="nav-search">
+            <input ref={inputRef} type="text" className="nav-search-input" value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+              placeholder="Rechercher une montre…" />
+            <button className="nav-search-submit" onClick={submit} aria-label="Rechercher"><IArrow /></button>
+          </div>
+        ) : (
+          <div className="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="index.html#collections">Collections</a>
+            <a href="index.html#histoire">Notre Histoire</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+        )}
+        <div className="nav-utils">
+          <button className="ic-btn" aria-label={searchOpen ? "Fermer" : "Recherche"} onClick={() => { setSearchOpen(s => !s); if (searchOpen) setQuery(""); }}><ISearch /></button>
+          <button className="ic-btn ham-btn" aria-label={menuOpen ? "Fermer le menu" : "Menu"} onClick={() => setMenuOpen(o => !o)}>{menuOpen ? <IClose /> : <IMenu />}</button>
+        </div>
+      </div>
+      {menuOpen && (
+        <div className="nav-mobile">
+          <a href="index.html">Accueil</a>
+          <a href="index.html#collections">Collections</a>
+          <a href="index.html#histoire">Notre Histoire</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+const Footer = () => (
+  <footer>
+    <div className="footer-inner">
+      <div className="footer-brand">
+        <div className="logo">
+          <img src="assets/clave-logo.png" alt="" />
+          <span><span>CLAVE</span> <span className="mods">MODS</span></span>
+        </div>
+        <p>Maison française de Seiko modifiées artisanalement. Chaque pièce est assemblée, réglée et contrôlée à la main — l'atelier CLAVE, à Toulouse.</p>
+      </div>
+      <div className="footer-col"><h5>Collections</h5><ul>
+        <li><a href="royal-oak.html">Royal Oak</a></li>
+        <li><a href="nautilus.html">Nautilus</a></li>
+        <li><a href="date-just.html">Date Just</a></li>
+        <li><a href="catalogue.html">Voir le catalogue</a></li>
+      </ul></div>
+      <div className="footer-col"><h5>Atelier</h5><ul>
+        <li><a href="index.html#histoire">Notre histoire</a></li>
+      </ul>
+      <h5 style={{ marginTop:"22px" }}>Légal</h5>
+      <ul>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="cgv.html">CGV</a></li>
+        <li><a href="confidentialite.html" style={{ color:"var(--violet-2)" }}>Confidentialité</a></li>
+      </ul></div>
+      <div className="footer-col"><h5>Support</h5><ul>
+        <li><a href="index.html#contact">Nous écrire</a></li>
+      </ul>
+      <h5 style={{ marginTop:"22px" }}>Retrouvez-moi</h5>
+      <ul className="footer-social-links">
+        <li><a href="https://www.instagram.com/clave_mods/" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><IInsta /></span>Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@clavemods" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><ITt /></span>TikTok</a></li>
+        <li><a href="https://www.vinted.fr/member/3155836117" target="_blank" rel="noopener noreferrer"><span className="soc-icon"><IVinted /></span>Vinted</a></li>
+      </ul></div>
+    </div>
+    <div className="footer-bottom">
+      <span>© CLAVE MODS · 2017 — 2026 · Toulouse</span>
+      <div className="footer-legal">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </div>
+      <div className="footer-social">
+        <a href="https://www.instagram.com/clave_mods/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><IInsta /></a>
+        <a href="https://www.tiktok.com/@clavemods" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><ITt /></a>
+        <a href="https://www.vinted.fr/member/3155836117" aria-label="Vinted" target="_blank" rel="noopener noreferrer"><IVinted /></a>
+      </div>
+    </div>
+  </footer>
+);
+
+function Page() {
+  return (
+    <>
+      <div className="ship-banner">
+        <span><span className="dot" /> Livraison mondiale offerte dès 150€</span>
+        <span className="sep ship-extra">✦</span>
+        <span className="ship-extra">Pièces numérotées, assemblées à Toulouse</span>
+        <span className="sep ship-extra">✦</span>
+        <span className="ship-extra">Garantie 3 ans atelier</span>
+      </div>
+      <Nav />
+      <main>
+        <div className="legal-hero wrap">
+          <nav className="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span className="sep">›</span>
+            <span style={{ color:"var(--fg-2)" }}>Confidentialité</span>
+          </nav>
+          <div className="eyebrow" style={{ marginTop:32 }}>Données personnelles · Cookies</div>
+          <h1>Confidentialité<br /><span className="it">vos données, vos droits.</span></h1>
+          <p className="legal-date">Dernière mise à jour : mai 2026</p>
+        </div>
+        <div className="legal-divider" />
+
+        <div className="legal-body wrap">
+
+          <h2>1. Responsable du traitement</h2>
+          <p>Le responsable du traitement des données personnelles collectées sur le site clavemods.fr est :</p>
+          <ul>
+            <li><strong>Identité :</strong> Mathys Colombo, entrepreneur individuel — CLAVE MODS</li>
+            <li><strong>Localisation :</strong> Toulouse (31), France</li>
+            <li><strong>Email :</strong> <a href="mailto:clavemods@gmail.com">clavemods@gmail.com</a></li>
+          </ul>
+
+          <h2>2. Données collectées</h2>
+          <p>Lors de l'utilisation du site et dans le cadre d'une commande, les données suivantes peuvent être collectées :</p>
+          <ul>
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Adresse postale de livraison</li>
+            <li>Données de paiement (traitées directement par notre prestataire de paiement — CLAVE MODS ne stocke aucune donnée bancaire)</li>
+            <li>Adresse IP et données de navigation (journaux serveur)</li>
+            <li>Messages échangés lors d'une prise de contact ou d'un échange commercial</li>
+          </ul>
+
+          <h2>3. Finalités du traitement</h2>
+          <p>Vos données sont utilisées exclusivement pour :</p>
+          <ul>
+            <li>Traiter, confirmer et expédier vos commandes</li>
+            <li>Vous contacter pour le suivi de commande, la livraison ou le SAV</li>
+            <li>Répondre à vos demandes de contact ou de configuration</li>
+            <li>Respecter les obligations légales et comptables (conservation des pièces justificatives)</li>
+            <li>Améliorer la sécurité et le bon fonctionnement du site (journaux serveur)</li>
+          </ul>
+          <p>Vos données ne sont jamais utilisées à des fins publicitaires ou de prospection commerciale non sollicitée.</p>
+
+          <h2>4. Base légale du traitement</h2>
+          <ul>
+            <li><strong>Exécution du contrat</strong> (art. 6.1.b RGPD) — pour le traitement des commandes et la livraison.</li>
+            <li><strong>Intérêt légitime</strong> (art. 6.1.f RGPD) — pour la communication avec les clients, la prévention des fraudes et la sécurité du site.</li>
+            <li><strong>Obligation légale</strong> (art. 6.1.c RGPD) — pour la conservation des pièces comptables.</li>
+          </ul>
+
+          <h2>5. Durée de conservation</h2>
+          <ul>
+            <li>Données liées aux commandes : <strong>5 ans</strong> à compter de la commande (obligation comptable, art. L.123-22 du Code de commerce).</li>
+            <li>Données de contact sans commande : <strong>3 ans</strong> à compter du dernier contact.</li>
+            <li>Journaux serveur : <strong>12 mois</strong> maximum.</li>
+          </ul>
+
+          <h2>6. Partage des données</h2>
+          <p>Vos données ne sont jamais vendues ni louées à des tiers. Elles peuvent être transmises uniquement à :</p>
+          <ul>
+            <li>Notre prestataire d'expédition (nom + adresse de livraison, uniquement pour la livraison)</li>
+            <li>Notre prestataire de paiement (selon le moyen choisi)</li>
+            <li>Les autorités compétentes (administration fiscale, justice) en cas d'obligation légale</li>
+          </ul>
+
+          <h2>7. Vos droits (RGPD)</h2>
+          <p>Conformément au Règlement général sur la protection des données (UE) 2016/679, vous disposez des droits suivants :</p>
+
+          <div className="rights-grid">
+            <div className="rights-item">
+              <span className="ri-label">Accès</span>
+              <p>Obtenir une copie de vos données personnelles.</p>
+            </div>
+            <div className="rights-item">
+              <span className="ri-label">Rectification</span>
+              <p>Corriger vos données inexactes ou incomplètes.</p>
+            </div>
+            <div className="rights-item">
+              <span className="ri-label">Effacement</span>
+              <p>Demander la suppression de vos données, dans les limites légales.</p>
+            </div>
+            <div className="rights-item">
+              <span className="ri-label">Opposition</span>
+              <p>Vous opposer à un traitement fondé sur l'intérêt légitime.</p>
+            </div>
+            <div className="rights-item">
+              <span className="ri-label">Limitation</span>
+              <p>Demander la suspension du traitement de vos données.</p>
+            </div>
+            <div className="rights-item">
+              <span className="ri-label">Portabilité</span>
+              <p>Recevoir vos données dans un format structuré et lisible.</p>
+            </div>
+          </div>
+
+          <p>Pour exercer l'un de ces droits, adressez votre demande à : <a href="mailto:clavemods@gmail.com">clavemods@gmail.com</a>. Une réponse vous sera apportée dans les 30 jours.</p>
+          <p>Vous avez également le droit d'introduire une réclamation auprès de la <strong>CNIL</strong> (Commission nationale de l'informatique et des libertés) : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
+
+          <h2>8. Cookies</h2>
+          <h3>Cookies techniques (exemptés de consentement)</h3>
+          <p>Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement : préférences d'affichage, mémorisation de session. Ces cookies sont exemptés de consentement conformément aux recommandations CNIL.</p>
+          <h3>Cookies tiers</h3>
+          <p>Aucun cookie de traçage publicitaire, de mesure d'audience tierce (Google Analytics, Meta Pixel, etc.) n'est utilisé sur ce site.</p>
+          <h3>Gestion des cookies</h3>
+          <p>Vous pouvez configurer votre navigateur pour bloquer ou supprimer les cookies. Cela peut affecter le bon fonctionnement de certaines fonctionnalités du site.</p>
+
+          <h2>9. Sécurité</h2>
+          <p>CLAVE MODS met en œuvre les mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, altération, divulgation ou destruction. Les données de paiement ne transitent jamais par nos serveurs et sont intégralement gérées par notre prestataire de paiement.</p>
+
+          <h2>10. Modifications</h2>
+          <p>La présente politique de confidentialité peut être mise à jour pour refléter des évolutions légales ou des changements dans nos pratiques. La date de dernière modification est indiquée en haut de page. Nous vous invitons à la consulter régulièrement.</p>
+
+          <h2>11. Contact</h2>
+          <p>Pour toute question relative à la protection de vos données personnelles : <a href="mailto:clavemods@gmail.com">clavemods@gmail.com</a>.</p>
+
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>
