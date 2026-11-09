@@ -254,7 +254,7 @@ const Footer = () => (
       </ul></div>
     </div>
     <div className="footer-bottom">
-      <span>© CLAVE MODS · 2017 — 2026 · Toulouse</span>
+      <span>© CLAVE MODS · 2024 — 2026 · Toulouse</span>
       <div className="footer-legal">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="cgv.html">CGV</a>
@@ -275,7 +275,7 @@ function Page() {
       <div className="ship-banner">
         <span><span className="dot" /> Livraison mondiale offerte dès 150€</span>
         <span className="sep ship-extra">✦</span>
-        <span className="ship-extra">Pièces numérotées, assemblées à Toulouse</span>
+        <span className="ship-extra">Assemblées à la main à Toulouse</span>
         <span className="sep ship-extra">✦</span>
         <span className="ship-extra">Garantie 3 ans atelier</span>
       </div>
@@ -289,7 +289,7 @@ function Page() {
           </nav>
           <div className="eyebrow" style={{ marginTop:32 }}>Données personnelles · Cookies</div>
           <h1>Confidentialité<br /><span className="it">vos données, vos droits.</span></h1>
-          <p className="legal-date">Dernière mise à jour : mai 2026</p>
+          <p className="legal-date">Dernière mise à jour : novembre 2026</p>
         </div>
         <div className="legal-divider" />
 
@@ -334,7 +334,8 @@ function Page() {
 
           <h2>5. Durée de conservation</h2>
           <ul>
-            <li>Données liées aux commandes : <strong>5 ans</strong> à compter de la commande (obligation comptable, art. L.123-22 du Code de commerce).</li>
+            <li>Données liées aux commandes (suivi client, SAV, garantie) : <strong>5 ans</strong> à compter de la commande (délai de prescription, art. 2224 du Code civil).</li>
+            <li>Factures et pièces comptables : <strong>10 ans</strong> (obligation comptable, art. L.123-22 du Code de commerce).</li>
             <li>Données de contact sans commande : <strong>3 ans</strong> à compter du dernier contact.</li>
             <li>Journaux serveur : <strong>12 mois</strong> maximum.</li>
           </ul>
@@ -343,9 +344,20 @@ function Page() {
           <p>Vos données ne sont jamais vendues ni louées à des tiers. Elles peuvent être transmises uniquement à :</p>
           <ul>
             <li>Notre prestataire d'expédition (nom + adresse de livraison, uniquement pour la livraison)</li>
-            <li>Notre prestataire de paiement (selon le moyen choisi)</li>
+            <li>Notre prestataire de paiement (selon le moyen choisi : banque, PayPal)</li>
             <li>Les autorités compétentes (administration fiscale, justice) en cas d'obligation légale</li>
           </ul>
+
+          <h3>Prestataires techniques et transferts hors Union européenne</h3>
+          <p>Le fonctionnement du site et des échanges avec les clients s'appuie sur les prestataires suivants, qui peuvent traiter certaines données en dehors de l'Union européenne, notamment aux États-Unis :</p>
+          <ul>
+            <li><strong>Netlify, Inc.</strong> (États-Unis) — hébergement du site : adresse IP et journaux techniques de connexion.</li>
+            <li><strong>Google</strong> (Google Fonts) — affichage des polices du site : votre navigateur transmet votre adresse IP aux serveurs de Google lors du chargement des pages.</li>
+            <li><strong>unpkg / Cloudflare</strong> — chargement de bibliothèques techniques du site : adresse IP.</li>
+            <li><strong>Google</strong> (Gmail) — échanges par email : adresse email, contenu des messages, informations de commande.</li>
+            <li><strong>WhatsApp / Meta</strong> — si vous choisissez de nous contacter par WhatsApp : numéro de téléphone, contenu des messages.</li>
+          </ul>
+          <p>Ces transferts sont encadrés par les clauses contractuelles types de la Commission européenne et/ou par l'adhésion de ces prestataires au cadre de protection des données UE–États-Unis (Data Privacy Framework). Si vous préférez éviter WhatsApp, vous pouvez toujours nous écrire par email.</p>
 
           <h2>7. Vos droits (RGPD)</h2>
           <p>Conformément au Règlement général sur la protection des données (UE) 2016/679, vous disposez des droits suivants :</p>
@@ -381,15 +393,11 @@ function Page() {
           <p>Vous avez également le droit d'introduire une réclamation auprès de la <strong>CNIL</strong> (Commission nationale de l'informatique et des libertés) : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
 
           <h2>8. Cookies</h2>
-          <h3>Cookies techniques (exemptés de consentement)</h3>
-          <p>Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement : préférences d'affichage, mémorisation de session. Ces cookies sont exemptés de consentement conformément aux recommandations CNIL.</p>
-          <h3>Cookies tiers</h3>
-          <p>Aucun cookie de traçage publicitaire, de mesure d'audience tierce (Google Analytics, Meta Pixel, etc.) n'est utilisé sur ce site.</p>
-          <h3>Gestion des cookies</h3>
-          <p>Vous pouvez configurer votre navigateur pour bloquer ou supprimer les cookies. Cela peut affecter le bon fonctionnement de certaines fonctionnalités du site.</p>
+          <p>Ce site <strong>ne dépose aucun cookie</strong> et n'utilise aucun traceur : pas de mesure d'audience, pas de publicité, pas de pixel de réseau social (Google Analytics, Meta Pixel, etc.). C'est pourquoi aucun bandeau de consentement ne vous est demandé.</p>
+          <p>Si cela devait changer, cette page serait mise à jour et votre consentement serait demandé avant tout dépôt de cookie non essentiel.</p>
 
           <h2>9. Sécurité</h2>
-          <p>CLAVE MODS met en œuvre les mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, altération, divulgation ou destruction. Les données de paiement ne transitent jamais par nos serveurs et sont intégralement gérées par notre prestataire de paiement.</p>
+          <p>CLAVE MODS met en œuvre les mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, altération, divulgation ou destruction. CLAVE MODS ne collecte ni ne conserve aucune donnée de carte bancaire : les paiements sont gérés directement par la banque ou PayPal.</p>
 
           <h2>10. Modifications</h2>
           <p>La présente politique de confidentialité peut être mise à jour pour refléter des évolutions légales ou des changements dans nos pratiques. La date de dernière modification est indiquée en haut de page. Nous vous invitons à la consulter régulièrement.</p>

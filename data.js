@@ -132,8 +132,8 @@ window.CLAVE_DATA = {
     },
     {
       n: "03",
-      t: "Style unique",
-      p: "Pas deux pièces identiques. Vous choisissez le cadran, le boîtier, les aiguilles. Une montre qui n'existe qu'à un seul exemplaire — le vôtre.",
+      t: "Votre style",
+      p: "Choisissez un modèle du catalogue, ou configurez le vôtre : cadran, boîtier, aiguilles. Pour une pièce vraiment à part, passez au sur-mesure.",
     },
   ],
 
@@ -141,7 +141,7 @@ window.CLAVE_DATA = {
   stats: [
     { n: "50",   k: "Montres assemblées" },
     { n: "98%",  k: "Satisfaction client" },
-    { n: "9 ans", k: "D'atelier à Toulouse" },
+    { n: "2 ans", k: "D'atelier à Toulouse" },
     { n: "3 ans", k: "De garantie" },
   ],
 
@@ -149,11 +149,11 @@ window.CLAVE_DATA = {
   faq: [
     {
       q: "Combien de temps pour recevoir ma montre ?",
-      a: "Les pièces en stock partent sous 48h. Pour une configuration sur-mesure, comptez 2 à 3 semaines d'atelier — chaque montre est assemblée et réglée à la demande. Vous recevez un suivi photo à chaque étape.",
+      a: "Les pièces en stock partent sous 48h. Les modèles du catalogue « sur commande » sont assemblés et expédiés sous 7 à 21 jours ouvrés. Pour une configuration sur-mesure, comptez 2 à 3 semaines d'atelier — chaque montre est assemblée et réglée à la demande. Vous recevez un suivi photo à chaque étape.",
     },
     {
       q: "Comment se passe le paiement ?",
-      a: "Pour toute pièce configurée sur-mesure, le paiement se fait en deux temps : un acompte de 70€ à la commande, qui lance la mise en atelier et la sélection des composants, puis le complément avant l'envoi de la montre. Les pièces disponibles en stock sont réglées en une seule fois — départ sous 48h.",
+      a: "Les modèles du catalogue sont réglés en une seule fois à la commande. Pour une pièce sur-mesure, le paiement se fait en deux temps : 70€ d'arrhes à la commande, qui lancent la mise en atelier et la sélection des composants, puis le solde avant l'envoi de la montre. Détails dans les CGV.",
     },
     {
       q: "Quelle est la garantie ?",
@@ -169,7 +169,7 @@ window.CLAVE_DATA = {
     },
     {
       q: "Livrez-vous à l'étranger ?",
-      a: "Livraison mondiale, assurée et suivie. Frais offerts en France et en UE à partir de 150€. Pour l'international, comptez 25€ et 5 à 7 jours ouvrés.",
+      a: "Oui, livraison mondiale, assurée et suivie, offerte partout dès 150€ d'achat. Hors Union européenne, d'éventuels frais de douane restent à la charge du destinataire.",
     },
     {
       q: "D'où viennent les pièces ?",
@@ -177,7 +177,7 @@ window.CLAVE_DATA = {
     },
     {
       q: "Acceptez-vous les retours ?",
-      a: "Quatorze jours pour changer d'avis sur une pièce de stock. Les configurations sur-mesure ne sont pas reprises, mais nous proposons un échange de cadran ou de bracelet à prix coûtant pendant six mois.",
+      a: "Oui : vous avez 14 jours après réception pour changer d'avis sur une pièce en stock ou un modèle du catalogue, et nous remboursons aussi les frais de livraison. Seules les configurations sur-mesure (personnalisées selon vos choix) ne sont pas reprises — nous proposons alors un échange de cadran ou de bracelet à prix coûtant pendant six mois.",
     },
   ],
 };
