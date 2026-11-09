@@ -616,6 +616,7 @@ function Page() {
           <div className="product-price-block">
             <div className="product-price">{p.price}€{window.CLAVE_DATA.promoActive && <span className="promo-chip">Offre limitée</span>}</div>
             <div className="product-price-note">TVA non applicable, art. 293 B du CGI · Livraison offerte dès 150€</div>
+            <div className="product-price-note" style={{ marginTop: 6, textTransform: "none", letterSpacing: ".04em" }}>Visuel de synthèse non contractuel — photos réelles sur demande</div>
           </div>
 
           <div className={`product-stock ${isOrder ? "order" : "instock"}`}>
