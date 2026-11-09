@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nautilus — CLAVE MODS · Seiko modifiées boîtier Nautilus · Toulouse</title>
-<meta name="description" content="Collection Nautilus · CLAVE MODS. 5 Seiko modifiées en style Nautilus — boîtier intégré, lunette biseautée, calibres NH35 & NH38. De 125 à 145€." />
+<meta name="description" content="Collection Nautilus · CLAVE MODS. 5 Seiko modifiées en style Nautilus — boîtier intégré, lunette biseautée, calibres NH35 & NH38. Toutes à 150€." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="CLAVE MODS" />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:title" content="Collection Nautilus — CLAVE MODS · Seiko modifiées boîtier intégré · Toulouse" />
-<meta property="og:description" content="5 Seiko modifiées Nautilus — boîtier intégré, lunette biseautée, calibres NH35 & NH38. Assemblées à la main à Toulouse. De 125 à 145€." />
+<meta property="og:description" content="5 Seiko modifiées Nautilus — boîtier intégré, lunette biseautée, calibres NH35 & NH38. Assemblées à la main à Toulouse. Toutes à 150€." />
 <meta property="og:image" content="https://clavemods.fr/assets/collections/nautilus.png" />
 <meta property="og:url" content="https://clavemods.fr/nautilus.html" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -128,9 +128,11 @@
 </style>
 </head>
 <body>
+<div class="promo-bar" id="promo-bar" hidden></div>
 <div id="root"></div>
 
 <script src="data.js"></script>
+<script src="promo.js" defer></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
@@ -246,7 +248,7 @@ const ProductCard = ({ p }) => {
         </div>
         <p className="prod-desc">{p.desc}</p>
         <div className="prod-price-row">
-          <div className="prod-price"><span className="vlt">{p.price}€</span></div>
+          <div className="prod-price"><span className="vlt">{p.price}€</span>{window.CLAVE_DATA.promoActive && <span className="promo-chip">Offre limitée</span>}</div>
           <button className="prod-btn" onClick={(e) => { e.stopPropagation(); window.location.href = `product.html?ref=${p.ref}`; }}>Commander</button>
         </div>
       </div>

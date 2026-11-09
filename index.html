@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CLAVE MODS — Montres Seiko modifiées artisanalement · Toulouse</title>
-<meta name="description" content="CLAVE MODS — Marque française de Seiko modifiées. Pièces uniques assemblées main à Toulouse. Catalogue de 110 à 150€. Livraison mondiale." />
+<meta name="description" content="CLAVE MODS — Marque française de Seiko modifiées. Pièces uniques assemblées main à Toulouse. Toutes les montres à 150€. Livraison mondiale." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="CLAVE MODS" />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:title" content="CLAVE MODS — Montres Seiko modifiées artisanalement · Toulouse" />
-<meta property="og:description" content="Maison française de Seiko modifiées. Pièces uniques assemblées à la main à Toulouse. De 110 à 150€. Livraison mondiale." />
+<meta property="og:description" content="Maison française de Seiko modifiées. Pièces uniques assemblées à la main à Toulouse. Toutes à 150€. Livraison mondiale." />
 <meta property="og:image" content="https://clavemods.fr/assets/collections/royal-oak.png" />
 <meta property="og:url" content="https://clavemods.fr/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="CLAVE MODS — Montres Seiko modifiées artisanalement · Toulouse" />
-<meta name="twitter:description" content="Maison française de Seiko modifiées. Pièces uniques assemblées à la main à Toulouse. De 110 à 150€. Livraison mondiale." />
+<meta name="twitter:description" content="Maison française de Seiko modifiées. Pièces uniques assemblées à la main à Toulouse. Toutes à 150€. Livraison mondiale." />
 <meta name="twitter:image" content="https://clavemods.fr/assets/collections/royal-oak.png" />
 
 <link rel="icon" type="image/png" href="assets/clave-logo.png" />
@@ -27,6 +27,7 @@
 </head>
 <body>
 
+<div class="promo-bar" id="promo-bar" hidden></div>
 <div id="root"></div>
 
 <!-- React + Babel -->
@@ -36,6 +37,7 @@
 
 <!-- Data -->
 <script src="data.js"></script>
+<script src="promo.js" defer></script>
 
 <!-- Tweaks panel (inlined — évite les restrictions CORS file://) -->
 <script type="text/babel" data-presets="react">
@@ -309,7 +311,7 @@ const Hero = ({ onJump }) => {
             <button className="cta-ghost" onClick={() => onJump("histoire")}>Notre histoire</button>
           </div>
           <div className="hero-meta">
-            <div className="m"><span className="v">110 — 150€</span><span className="k">Gamme de prix</span></div>
+            <div className="m"><span className="v">150€</span><span className="k">Prix unique</span></div>
             <div className="m"><span className="v">{window.CLAVE_DATA.products.length}</span><span className="k">Références</span></div>
             <div className="m"><span className="v">3 ans</span><span className="k">Garantie atelier</span></div>
           </div>
@@ -386,7 +388,7 @@ const ProductCard = ({ p }) => {
         <div className="prod-price-row">
           <div className="prod-price">
             {p.oldPrice && <span className="old">{p.oldPrice}€</span>}
-            <span className="vlt">{p.price}€</span>
+            <span className="vlt">{p.price}€</span>{window.CLAVE_DATA.promoActive && <span className="promo-chip">Offre limitée</span>}
           </div>
           <a href={`product.html?ref=${p.ref}`} className="prod-btn" onClick={(e) => e.stopPropagation()}>Voir la montre</a>
         </div>
@@ -449,7 +451,7 @@ const Lookbook = () => {
                 <span className="look-sub">{it.sub}</span>
               </div>
               <div className="look-foot-r">
-                <span className="look-price">{it.price}€</span>
+                <span className="look-price">{it.price}€{window.CLAVE_DATA.promoActive && <span className="promo-chip">Offre limitée</span>}</span>
                 <a href={`product.html?ref=${it.ref}`} className="look-link" onClick={(e) => e.stopPropagation()}>Voir la pièce <I.arrow /></a>
               </div>
             </div>
